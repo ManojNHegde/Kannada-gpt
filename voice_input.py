@@ -21,9 +21,7 @@ def get_kannada_voice_input():
         key="speech",
         mode="SENDRECV",
         audio_processor_factory=AudioProcessor,
-        in_audio=True,
-        video_transformer_factory=None,
-        media_stream_constraints={"audio": True, "video": False},
+        media_stream_constraints={"audio": True, "video": False},  # Only mic, no camera
     )
 
     if ctx.audio_processor and ctx.audio_processor.audio_chunks:
