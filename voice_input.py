@@ -1,17 +1,11 @@
 # voice_input.py
 
 import streamlit as st
-from streamlit_webrtc import webrtc_streamer, AudioProcessorBase, ClientSettings
+from streamlit_webrtc import webrtc_streamer, AudioProcessorBase
 import av
-import speech_recognition as sr
 import numpy as np
+import speech_recognition as sr
 from deep_translator import GoogleTranslator
-
-# For client settings (required to avoid browser errors)
-WEBRTC_CLIENT_SETTINGS = ClientSettings(
-    rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
-    media_stream_constraints={"audio": True, "video": False},
-)
 
 class AudioProcessor(AudioProcessorBase):
     def __init__(self):
@@ -26,10 +20,10 @@ def get_kannada_voice_input():
     ctx = webrtc_streamer(
         key="speech",
         mode="SENDRECV",
-        in_audio=True,
-        client_settings=WEBRTC_CLIENT_SETTINGS,
         audio_processor_factory=AudioProcessor,
-        async_processing=True,
+        in_audio=True,
+        video_transformer_factory=None,
+        media_stream_constraints={"audio": True, "video": False},
     )
 
     if ctx.audio_processor and ctx.audio_processor.audio_chunks:
