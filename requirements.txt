@@ -1,0 +1,7 @@
+openai
+python-dotenv
+deep-translator
+speechrecognition
+gtts
+pygame
+pyaudio
