@@ -1,7 +1,7 @@
-openai
-python-dotenv
-deep-translator
+streamlit
+sounddevice
+numpy
 speechrecognition
+deep-translator
 gtts
 pygame
-pyaudio

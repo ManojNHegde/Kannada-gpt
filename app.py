@@ -40,8 +40,11 @@ if st.session_state.chat_active:
         with placeholder.container():
             st.markdown("🟢 ಧ್ವನಿ ಕೇಳಲಾಗುತ್ತಿದೆ...")
 
-        # Get Kannada voice input and its English version
-        en_text, kn_text = get_kannada_voice_input()
+        try:
+            en_text, kn_text = get_kannada_voice_input()
+        except Exception as e:
+            st.warning(f"🎤 ಧ್ವನಿ ಪಡೆಯಲು ದೋಷ: {e}")
+            continue
 
         if not st.session_state.chat_active:
             break
@@ -50,14 +53,14 @@ if st.session_state.chat_active:
             with placeholder.container():
                 st.markdown("🤖 ಯೋಚಿಸುತ್ತಿದೆ...")
 
-            # Ask LLM and get Kannada translation
+            # Ask LLM and get Kannada response
             llm_response_en = ask_llama(en_text)
             kn_response = translate_en_to_kn(llm_response_en)
 
             # Speak in Kannada
             speak_kannada(kn_response)
 
-            # Save Kannada input and output to chat history
+            # Save chat history
             st.session_state.chat.append(("🙋‍♂️", kn_text))
             st.session_state.chat.append(("🤖", kn_response))
 
