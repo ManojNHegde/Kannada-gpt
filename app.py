@@ -1,71 +1,33 @@
-import streamlit as st
-import time
-from voice_input import get_kannada_voice_input
+import gradio as gr
+from backend.voice_input import get_kannada_voice_input
 from qa_chain import ask_llama
-from translator import translate_en_to_kn
-from tts import speak_kannada
+from backend.translator import translate_en_to_kn
+from backend.tts import speak_kannada
 
-st.set_page_config(page_title="ಕನ್ನಡ ಚಾಟ್‌ಬಾಟ್", layout="centered")
+def process_audio(audio_file, chat_history):
+    en_text, kn_text = get_kannada_voice_input(audio_file)
 
-# Initialize session state
-if "chat" not in st.session_state:
-    st.session_state.chat = []
-if "chat_active" not in st.session_state:
-    st.session_state.chat_active = False
+    if not en_text or not kn_text:
+        chat_history.append({"role": "user", "content": "⚠️ ಧ್ವನಿಯನ್ನು ಗುರುತಿಸಲಾಗಿಲ್ಲ."})
+        return chat_history, None
 
-st.title("🗣️ ಕನ್ನಡ ಚಾಟ್‌ಬಾಟ್")
+    llm_response_en = ask_llama(en_text)
+    kn_response = translate_en_to_kn(llm_response_en)
+    tts_audio_path = speak_kannada(kn_response)
 
-# Start / Stop controls
-col1, col2 = st.columns([1, 1])
-with col1:
-    if not st.session_state.chat_active:
-        if st.button("▶️ ಸಂಭಾಷಣೆ ಪ್ರಾರಂಭಿಸಿ"):
-            st.session_state.chat_active = True
-with col2:
-    if st.session_state.chat_active:
-        if st.button("⏹️ ನಿಲ್ಲಿಸಿ"):
-            st.session_state.chat_active = False
+    chat_history.append({"role": "user", "content": kn_text})
+    chat_history.append({"role": "assistant", "content": kn_response})
 
-# Show chat history
-for sender, message in st.session_state.chat:
-    with st.chat_message(sender):
-        st.markdown(message)
+    return chat_history, tts_audio_path
 
-# Chat loop
-if st.session_state.chat_active:
-    st.markdown("🎙️ **ಧ್ವನಿ ಶ್ರವಣ ನಡೆಯುತ್ತಿದೆ...** (ನಿಲ್ಲಿಸಲು ಮೇಲಿನ ಬಟನ್ ಒತ್ತಿ)")
-    placeholder = st.empty()
+with gr.Blocks() as demo:
+    gr.Markdown("## 🗣️ ಕನ್ನಡ ಧ್ವನಿ ಚಾಟ್‌ಬಾಟ್")
+    chatbot = gr.Chatbot(label="💬 ಸಂಭಾಷಣೆ", type="messages")
+    audio_input = gr.Audio(sources=["microphone"], type="filepath", format="mp3", label="🎤 ಧ್ವನಿ ನಮೂದಿಸಿ")
+    output_audio = gr.Audio(label="🔊 ಸ್ಪೀಚ್ ಔಟ್‌ಪುಟ್")
+    btn = gr.Button("📤 ಕಳುಹಿಸಿ")
+    state = gr.State([])
 
-    while st.session_state.chat_active:
-        with placeholder.container():
-            st.markdown("🟢 ಧ್ವನಿ ಕೇಳಲಾಗುತ್ತಿದೆ...")
+    btn.click(fn=process_audio, inputs=[audio_input, state], outputs=[chatbot, output_audio])
 
-        try:
-            en_text, kn_text = get_kannada_voice_input()
-        except Exception as e:
-            st.warning(f"🎤 ಧ್ವನಿ ಪಡೆಯಲು ದೋಷ: {e}")
-            continue
-
-        if not st.session_state.chat_active:
-            break
-
-        if en_text and kn_text:
-            with placeholder.container():
-                st.markdown("🤖 ಯೋಚಿಸುತ್ತಿದೆ...")
-
-            # Ask LLM and get Kannada response
-            llm_response_en = ask_llama(en_text)
-            kn_response = translate_en_to_kn(llm_response_en)
-
-            # Speak in Kannada
-            speak_kannada(kn_response)
-
-            # Save chat history
-            st.session_state.chat.append(("🙋‍♂️", kn_text))
-            st.session_state.chat.append(("🤖", kn_response))
-
-        else:
-            st.warning("⚠️ ಧ್ವನಿಯನ್ನು ಪತ್ತೆಮಾಡಲಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.")
-
-        time.sleep(1)
-        st.rerun()
+demo.launch()

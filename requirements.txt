@@ -1,11 +1,6 @@
-streamlit
-sounddevice
-numpy
-speechrecognition
-deep-translator
+fastapi
+uvicorn
 gtts
-pygame
-openai
-dotenv
 pydub
-streamlit-webrtc
+deep-translator
+openai

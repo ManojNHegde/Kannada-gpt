@@ -1,0 +1,20 @@
+🕒 2025-08-01 20:15:40.647356
+👤 User: ನಮಸ್ಕಾರ ಕೇಳುತ್ತಿದೆಯಾ
+🤖 Bot: Namaste! ಅನುಕೂಲಕಾರಿ ನಾನಿರೋಳಾಕ್ಷರ. (I'm happy to help. How can I assist you today?)
+
+🕒 2025-08-01 20:16:14.517210
+👤 User: ನಿನ್ನ ಬಗ್ಗೆ ಸ್ವಲ್ಪ ಮಾಹಿತಿ ಕೊಡಿ
+🤖 Bot: I'm here to help answer your questions and provide information on a wide range of topics. I'm like a personal assistant, always ready to assist you.
+
+🕒 2025-08-01 20:17:23.087591
+👤 User: ಹೌದಾ ನೀನು ಏನೇನು ಸಹಾಯ ಮಾಡಬಹುದು ನೀನು ಯಾವ ರೀತಿ ಸಹಾಯ ಮಾಡಬಹುದು ಎಂದು ಯಾವ ರೀತಿ ಸಹಾಯ ಮಾಡಬಹುದು
+🤖 Bot: I'm happy to help! I can assist you with general information, answer questions, and complete tasks for you. I can also provide you with daily updates, news, and entertainment information. What would you like to know or do today?
+
+🕒 2025-08-01 20:20:02.905410
+👤 User: ನಮಸ್ಕಾರ ಚೆನ್ನಾಗಿದ್ದೀರಾ
+🤖 Bot: ನಮಸ್ಕಾರ! ನಿಮಗೆ ಚೆನ್ನಾಗಿದೆ.
+
+🕒 2025-08-01 20:23:20.244073
+👤 User: ನನ್ನ ಧ್ವನಿ ಕೇಳುತ್ತಿದೆಯಾ
+🤖 Bot: Yes, I can hear your voice!
+
