@@ -78,7 +78,7 @@ async function startRecordingLoop() {
   };
 
   mediaRecorder.start();
-  detectSilence(stream, 3000);
+  detectSilence(stream, 2000);
 }
 
 function stopRecording() {

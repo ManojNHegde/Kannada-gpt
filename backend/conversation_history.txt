@@ -1,20 +1,16 @@
-🕒 2025-08-01 20:15:40.647356
-👤 User: ನಮಸ್ಕಾರ ಕೇಳುತ್ತಿದೆಯಾ
-🤖 Bot: Namaste! ಅನುಕೂಲಕಾರಿ ನಾನಿರೋಳಾಕ್ಷರ. (I'm happy to help. How can I assist you today?)
-
-🕒 2025-08-01 20:16:14.517210
-👤 User: ನಿನ್ನ ಬಗ್ಗೆ ಸ್ವಲ್ಪ ಮಾಹಿತಿ ಕೊಡಿ
-🤖 Bot: I'm here to help answer your questions and provide information on a wide range of topics. I'm like a personal assistant, always ready to assist you.
-
-🕒 2025-08-01 20:17:23.087591
-👤 User: ಹೌದಾ ನೀನು ಏನೇನು ಸಹಾಯ ಮಾಡಬಹುದು ನೀನು ಯಾವ ರೀತಿ ಸಹಾಯ ಮಾಡಬಹುದು ಎಂದು ಯಾವ ರೀತಿ ಸಹಾಯ ಮಾಡಬಹುದು
-🤖 Bot: I'm happy to help! I can assist you with general information, answer questions, and complete tasks for you. I can also provide you with daily updates, news, and entertainment information. What would you like to know or do today?
-
-🕒 2025-08-01 20:20:02.905410
+🕒 2025-08-01 20:34:12.711820
 👤 User: ನಮಸ್ಕಾರ ಚೆನ್ನಾಗಿದ್ದೀರಾ
-🤖 Bot: ನಮಸ್ಕಾರ! ನಿಮಗೆ ಚೆನ್ನಾಗಿದೆ.
+🤖 Bot: ನಿಮಗೆಯೂ ಚೆನ್ನಾಗಿದ್ದೀರಿ!
 
-🕒 2025-08-01 20:23:20.244073
-👤 User: ನನ್ನ ಧ್ವನಿ ಕೇಳುತ್ತಿದೆಯಾ
-🤖 Bot: Yes, I can hear your voice!
+🕒 2025-08-01 20:34:43.533849
+👤 User: ನಾನು ನಿನ್ನ ಜೊತೆ ಮಾತನಾಡಲು ಇಷ್ಟ ಪಡುತ್ತೇನೆ ನಾನು ನಿನ್ನ ಜೊತೆ ಮಾತನಾಡಲು ಇಷ್ಟ ಪಡುತ್ತಿದ್ದೇನೆ
+🤖 Bot: That's great! I'm happy to chat with you too. What's on your mind? Anything you'd like to talk about or ask?
+
+🕒 2025-08-01 20:35:36.183692
+👤 User: ಹೌದು ನಾ ನಿನ್ನ ಬಗ್ಗೆ ಸ್ವಲ್ಪ ತಿಳಿದುಕೊಳ್ಳಲು ಬಯಸುತ್ತೇನೆ
+🤖 Bot: I'm happy to chat with you! I'm an artificial intelligence designed to assist and answer questions to the best of my ability. I can understand and respond in several languages, including English and some languages with diacritical marks like Kannada. What would you like to talk about or ask me today?
+
+🕒 2025-08-01 20:38:29.543979
+👤 User: ನಮಸ್ಕಾರ ಕೇಳುತ್ತಿದೆಯಾ
+🤖 Bot: Namaskara! How can I assist you today?
 
